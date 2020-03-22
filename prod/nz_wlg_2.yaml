@@ -1,0 +1,18 @@
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: b1.standard
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+    kubernetes.io/description: "Using b1.standard as storage backend"
+  labels:
+    kubernetes.io/cluster-service: "true"
+    addonmanager.kubernetes.io/mode: EnsureExists
+provisioner: kubernetes.io/cinder
+reclaimPolicy: Delete
+parameters:
+  type: b1.standard
+  availability: NZ-WLG-2
+  fstype: ext4
+
